@@ -19,26 +19,23 @@ public class DavronsController extends ViewController {
     public void voiceBtnOnMousePressed(MouseEvent mouseEvent) {
         super.voiceBtnOnMousePressed(mouseEvent);
         // Your code goes here
+        // Start recording
     }
 
     @Override
     public void voiceBtnOnMouseReleased(MouseEvent mouseEvent) {
         super.voiceBtnOnMouseReleased(mouseEvent);
+        // Your code goes here
         // Stop recording
         // Make API request
         // when request returned anything call setVoiceLabelIdle();
-        // then in order to add recognized text use addCell(String message);
-        // then after recognized use playVideo();
         afterRecognized();
-//        addCell("Recognized text");
-//        playVideo(new File("assets/small.mp4"));
-
     }
 
     @Override
     public void beforeVideo() {
         super.beforeVideo();
-
+        // Your code goes here
     }
 
     @Override
@@ -54,7 +51,6 @@ public class DavronsController extends ViewController {
     Queue<File> videoQueue = new LinkedList<>();
 
     public void playNext() {
-
         // These 5 lines add the file name to the listView.
         // You can Either leave them or delete and use addCell(recognized_text_string);
         String nextVideoName = videoQueue.peek().getName();
@@ -66,6 +62,7 @@ public class DavronsController extends ViewController {
     }
 
     public void afterRecognized() {
+        // Your code goes here
         // assume you have to play 3 videos
         File[] videos = {
                 new File("assets/small.mp4"),
