@@ -1,0 +1,16 @@
+.root {
+    -fx-background-color:rgba(10,10,150,1);
+}
+
+#listView {
+    -fx-background-color:rgba(56,176,209);
+}
+
+#list-view .list-cell:even {
+-fx-background-color: blue;
+-fx-text-fill: black;
+}
+#list-view .list-cell:odd {
+-fx-background-color: blue;
+-fx-text-fill: black;
+}
