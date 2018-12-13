@@ -17,7 +17,7 @@ public class Controller implements ApiInterface {
     public void start(){
         Thread t = new Thread(() -> {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
