@@ -17,3 +17,5 @@ gradle-app.setting
 
 /recorded.wav
 /out/
+/.idea/workspace.xml
+/.idea/encodings.xml
