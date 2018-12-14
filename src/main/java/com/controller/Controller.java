@@ -58,7 +58,7 @@ public class Controller extends ViewController implements ApiInterface {
             addCell(transcript);
             String lowerCase = transcript.toLowerCase();
             for(int i = 0; i<transcript.length(); i++){
-                if(lowerCase.charAt(i) != ' '){
+                if(lowerCase.charAt(i) != ' ' && lowerCase.charAt(i) != '\''){
                     String fileName = "assets/" + lowerCase.charAt(i) + ".mp4";
                     File file = new File(fileName);
                     videoQueue.add(file);
@@ -95,8 +95,8 @@ public class Controller extends ViewController implements ApiInterface {
     public void afterVideo() {
         super.afterVideo();
         if (!videoQueue.isEmpty()) {
-            playVideo(videoQueue.firstElement());
-            videoQueue.removeElementAt(0);
+                playVideo(videoQueue.firstElement());
+                videoQueue.removeElementAt(0);
         }else {
             isActive = true;
         }
