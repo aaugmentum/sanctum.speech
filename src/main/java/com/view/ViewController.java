@@ -74,6 +74,11 @@ public class ViewController implements Initializable {
         }
     }
 
+    public final void stopVideo() {
+        mediaPlayer.stop();
+        videoBox.setMediaPlayer(null);
+    }
+
     private final void initPlayer (String uri) {
         if (uri == null)
             return;
