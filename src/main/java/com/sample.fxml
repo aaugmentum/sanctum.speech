@@ -2,46 +2,51 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: rgba(56,176,209);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Controller">
-    <right>
-        <BorderPane prefHeight="900.0" prefWidth="300.0" BorderPane.alignment="CENTER">
-            <top>
-                <ListView id="listView" fx:id="listBox" prefHeight="700.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-            </top>
-            <bottom>
-            <BorderPane prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
-               <center>
-                  <BorderPane maxHeight="125.0" maxWidth="170.0" minHeight="125.0" minWidth="170.0" prefHeight="125.0" prefWidth="170.0">
-                     <bottom>
-                        <Label fx:id="voiceLabel" text="Push" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <BorderPane.margin>
-                              <Insets bottom="5.0" />
-                           </BorderPane.margin>
-                        </Label>
-                     </bottom>
-                     <top>
-                              <ImageView fx:id="voiceImage" blendMode="SRC_ATOP" fitHeight="75.0" fitWidth="75.0" onMousePressed="#voiceBtnOnMousePressed" onMouseReleased="#voiceBtnOnMouseReleased" pickOnBounds="true" preserveRatio="true" styleClass="imageView" BorderPane.alignment="CENTER" />
-                     </top>
-                  </BorderPane>
-               </center>
-            </BorderPane>
-            </bottom>
-        </BorderPane>
-    </right>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Controller">
     <left>
-        <BorderPane prefHeight="900.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-            <center>
-                <MediaView fx:id="videoBox" fitHeight="900.0" fitWidth="900.0" BorderPane.alignment="CENTER" />
-            </center>
+        <BorderPane fx:id="playerParent" prefHeight="750.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <Label id="subtitleLabel" fx:id="subtitles" text="Label" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+         </bottom>
+         <top>
+                <MediaView fx:id="videoBox" fitHeight="750.0" fitWidth="1200.0" BorderPane.alignment="CENTER" />
+         </top>
         </BorderPane>
     </left>
+   <bottom>
+      <BorderPane id="lowerPane" prefHeight="150.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane maxHeight="125.0" maxWidth="170.0" minHeight="125.0" minWidth="170.0" prefHeight="125.0" prefWidth="170.0" BorderPane.alignment="BOTTOM_CENTER">
+               <bottom>
+                  <Label id="pushLabel" fx:id="voiceLabel" text="Push" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" />
+                     </BorderPane.margin>
+                  </Label>
+               </bottom>
+               <top>
+                        <ImageView fx:id="voiceImage" blendMode="SRC_ATOP" fitHeight="75.0" fitWidth="75.0" onMousePressed="#voiceBtnOnMousePressed" onMouseReleased="#voiceBtnOnMouseReleased" pickOnBounds="true" preserveRatio="true" styleClass="imageView" BorderPane.alignment="CENTER" />
+               </top>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </bottom>
 </BorderPane>

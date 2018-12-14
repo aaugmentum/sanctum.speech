@@ -1,16 +1,15 @@
 .root {
-    -fx-background-color:rgba(10,10,150,1);
+    -fx-background-color: linear-gradient(to top, #2B1E54, #EB5860);
 }
-
-#listView {
-    -fx-background-color:rgba(56,176,209);
+#lowerPane {
+-fx-background-color: transparent;
 }
-
-#list-view .list-cell:even {
--fx-background-color: blue;
--fx-text-fill: black;
+#rootPane {
+-fx-background-color: transparent;
 }
-#list-view .list-cell:odd {
--fx-background-color: blue;
--fx-text-fill: black;
+#pushLabel {
+-fx-text-fill: white;
+}
+#subtitleLabel {
+-fx-text-fill: white;
 }

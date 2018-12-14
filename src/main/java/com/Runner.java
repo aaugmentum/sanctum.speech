@@ -17,10 +17,7 @@ public class Runner extends Application {
         Scene scene = new Scene(root, 1200, 900);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 //        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setOpacity(0.7);
-
-
-//        scene.setFill(Color.CRIMSON);
+//        primaryStage.setOpacity(0.7);
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {

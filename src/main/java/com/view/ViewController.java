@@ -3,7 +3,6 @@ package com.view;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ViewController implements Initializable {
-    public ListView listBox;
+    public Label subtitles;
     public ImageView voiceImage;
     public MediaView videoBox;
     public Label voiceLabel;
@@ -25,7 +24,7 @@ public class ViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image i = new Image(new File("assets/micb.png").toURI().toString());
+        Image i = new Image(new File("assets/mic.png").toURI().toString());
         voiceImage.setImage(i);
         voiceImage.setStyle("-fx-background-color: BLACK");
     }
@@ -64,8 +63,7 @@ public class ViewController implements Initializable {
     }
 
     public final void addCell(String message) {
-        listBox.getItems().add(0, message);
-        listBox.setStyle("-fx-control-inner-background: rgba(56,176,209);");
+        subtitles.setText(message);
     }
 
     public final void playVideo(File file) {
