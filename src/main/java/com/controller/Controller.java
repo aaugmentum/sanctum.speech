@@ -17,10 +17,12 @@ public class Controller extends ViewController implements ApiInterface {
     private Api api;
     private RecordThread recorderThread;
     private Vector<File> videoQueue;
+    private boolean isActive;
 
     public Controller() {
         api = new Api(this);
         videoQueue = new Vector<>();
+        isActive = true;
     }
 
     public void voiceBtnOnMouseAction(ActionEvent actionEvent) {
@@ -29,25 +31,23 @@ public class Controller extends ViewController implements ApiInterface {
 
     @Override
     public void voiceBtnOnMousePressed(MouseEvent mouseEvent) {
-        super.voiceBtnOnMousePressed(mouseEvent);
-        recorderThread = new RecordThread();
-        recorderThread.start();
-    }
-
-    @Override
-    public void afterVideo() {
-        super.afterVideo();
-        if (!videoQueue.isEmpty()) {
-            playVideo(videoQueue.firstElement());
-            videoQueue.removeElementAt(0);
+        if(isActive){
+            super.voiceBtnOnMousePressed(mouseEvent);
+            recorderThread = new RecordThread();
+            recorderThread.start();
+            System.out.println("The button became inactive");
         }
     }
 
     @Override
     public void voiceBtnOnMouseReleased(MouseEvent mouseEvent) {
-        super.voiceBtnOnMouseReleased(mouseEvent);
-        System.out.println("Start request...");
-        api.startRequest(recorderThread.stopRecording());
+        if(isActive){
+            super.voiceBtnOnMouseReleased(mouseEvent);
+            System.out.println("Start request...");
+            api.startRequest(recorderThread.stopRecording());
+            isActive = false;
+        }
+
     }
 
     @Override
@@ -72,6 +72,7 @@ public class Controller extends ViewController implements ApiInterface {
     @Override
     public void onError(ApiError error) {
         Platform.runLater(this::setVoiceLabelIdle);
+        isActive = true;
     }
 
     private class RecordThread extends Thread {
@@ -87,6 +88,17 @@ public class Controller extends ViewController implements ApiInterface {
         File stopRecording() {
             interrupt();
             return recorder.stop();
+        }
+    }
+
+    @Override
+    public void afterVideo() {
+        super.afterVideo();
+        if (!videoQueue.isEmpty()) {
+            playVideo(videoQueue.firstElement());
+            videoQueue.removeElementAt(0);
+        }else {
+            isActive = true;
         }
     }
 }
