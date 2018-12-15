@@ -6,7 +6,6 @@ import com.api.ApiInterface;
 import com.record.AudioRecorder;
 import com.view.ViewController;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -71,8 +70,20 @@ public class Controller extends ViewController implements ApiInterface {
 
     @Override
     public void onError(ApiError error) {
-        Platform.runLater(this::setVoiceLabelIdle);
+        Platform.runLater(() -> {
+            this.setVoiceLabelIdle();
+            if(error == ApiError.NOTHING_RECOGNIZED){
+                addCell("Nothing recognized");
+            }else if(error == ApiError.INTERNET_ERROR){
+                addCell("No internet connection");
+            }else if(error == ApiError.UNAUTHORIZED){
+                addCell("Token is out of date");
+            }else {
+                addCell("Some error occurred");
+            }
+        });
         isActive = true;
+
     }
 
     private class RecordThread extends Thread {

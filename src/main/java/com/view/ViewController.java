@@ -88,8 +88,11 @@ public class ViewController implements Initializable {
         Media media = new Media(uri);
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
-        videoBox.setMediaPlayer(mediaPlayer);
-        mediaPlayer.setOnReady(() -> beforeVideo());
+//        videoBox.setMediaPlayer(mediaPlayer);
+        mediaPlayer.setOnReady(() -> {
+            videoBox.setMediaPlayer(mediaPlayer);
+            beforeVideo();
+        });
         mediaPlayer.setOnEndOfMedia(() -> afterVideo());
     }
 }

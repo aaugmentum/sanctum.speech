@@ -7,13 +7,13 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.Controller">
     <left>
         <BorderPane fx:id="playerParent" prefHeight="750.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
          <bottom>
-            <Label id="subtitleLabel" fx:id="subtitles" text="Label" BorderPane.alignment="CENTER">
+            <Label id="subtitleLabel" fx:id="subtitles" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets />
+                  <Insets bottom="40.0" />
                </BorderPane.margin>
                <font>
                   <Font size="42.0" />
@@ -21,7 +21,7 @@
             </Label>
          </bottom>
          <top>
-                <MediaView fx:id="videoBox" fitHeight="750.0" fitWidth="1200.0" BorderPane.alignment="CENTER" />
+                <MediaView fx:id="videoBox" fitHeight="720.0" fitWidth="1200.0" BorderPane.alignment="CENTER" />
          </top>
         </BorderPane>
     </left>
@@ -43,7 +43,7 @@
                         <ImageView fx:id="voiceImage" blendMode="SRC_ATOP" fitHeight="75.0" fitWidth="75.0" onMousePressed="#voiceBtnOnMousePressed" onMouseReleased="#voiceBtnOnMouseReleased" pickOnBounds="true" preserveRatio="true" styleClass="imageView" BorderPane.alignment="CENTER" />
                </top>
                <BorderPane.margin>
-                  <Insets />
+                  <Insets bottom="50.0" />
                </BorderPane.margin>
             </BorderPane>
          </center>

@@ -66,8 +66,8 @@ public class Api implements Callback<ResponseResult> {
             String transcript = result.getResults().get(0).getAlternatives().get(0).getTranscript();
             apiInterface.onSuccess(transcript);
         } else {
-            System.out.print(ApiError.NOTHINIG_RECOGNIZED);
-            apiInterface.onError(ApiError.NOTHINIG_RECOGNIZED);
+            System.out.print(ApiError.NOTHING_RECOGNIZED);
+            apiInterface.onError(ApiError.NOTHING_RECOGNIZED);
         }
     }
 

@@ -3,6 +3,6 @@ package com.api;
 public enum ApiError {
     UNAUTHORIZED,
     INTERNET_ERROR,
-    NOTHINIG_RECOGNIZED,
+    NOTHING_RECOGNIZED,
     OTHER
 }
